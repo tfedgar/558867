@@ -26,36 +26,41 @@ const Header = (props) => {
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
+              <NavItem className="mb-0">
+                <Link className="nav-link" to="/">Home</Link>
+              </NavItem>
               {props.pages.edges && props.pages.edges.map((page, i) => {
                 const slug = page.node.slug === "/" ? "/" : `/${page.node.slug}/`
+                if (slug !== "/") {
+                  if (page.node.childPages) {
+                    return(
+                      <UncontrolledDropdown nav inNavbar className="mb-0">
+                        <DropdownToggle nav caret>
+                          {page.node.title}
+                        </DropdownToggle>
+                        <DropdownMenu>
+                          <DropdownItem key={i}>
+                              <Link className="nav-link" to={slug}>Overview</Link>
+                          </DropdownItem>
+                          {page.node.childPages.map((child, i) => {
+                            return(
+                              <DropdownItem key={i}>
+                                <Link className="nav-link" to={`${slug}${child.slug}/`}>{child.title}</Link>
+                              </DropdownItem>
+                            )
+                          })}
+                        </DropdownMenu>
+                      </UncontrolledDropdown>
+                    )
+                  } else {
+                    return(
+                      <NavItem className="mb-0">
+                        <Link className="nav-link" to={slug}>{page.node.title}</Link>
+                      </NavItem>
+                    )
+                  }
+                } else return ""
 
-                if (page.node.childPages) {
-                  return(
-                    <UncontrolledDropdown nav inNavbar className="mb-0">
-                      <DropdownToggle nav caret>
-                        {page.node.title}
-                      </DropdownToggle>
-                      <DropdownMenu>
-                        <DropdownItem key={i}>
-                            <Link className="nav-link" to={slug}>Overview</Link>
-                        </DropdownItem>
-                        {page.node.childPages.map((child, i) => {
-                          return(
-                            <DropdownItem key={i}>
-                              <Link className="nav-link" to={`${slug}${child.slug}/`}>{child.title}</Link>
-                            </DropdownItem>
-                          )
-                        })}
-                      </DropdownMenu>
-                    </UncontrolledDropdown>
-                  )
-                } else {
-                  return(
-                    <NavItem className="mb-0">
-                      <Link className="nav-link" to={slug}>{page.node.title}</Link>
-                    </NavItem>
-                  )
-                }
               })}
             </Nav>
           </Collapse>
