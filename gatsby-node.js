@@ -20,7 +20,7 @@ const createSinglePages = async ({ posts, gatsbyUtilities }) => {
                 // See https://www.gatsbyjs.com/docs/actions#createPage for more info
                 switch (post.__typename) {
                     case "ContentfulPage": 
-                        const slug = post.slug ? `/${post.slug}/` : `/`
+                        const slug = post.slug === '/' ?  `/` : `/${post.slug}/`
                         gatsbyUtilities.actions.createPage({
                             path: slug,
                             component: path.resolve(`./src/templates/DefaultTemplate.js`),
@@ -28,6 +28,20 @@ const createSinglePages = async ({ posts, gatsbyUtilities }) => {
                                 id: post.id,
                             },
                         })
+
+                        if (post.childPages) {
+                            for (const childPage of post.childPages) {
+                                const childSlug = `${slug}${childPage.slug}/`
+                                gatsbyUtilities.actions.createPage({
+                                    path: childSlug,
+                                    component: path.resolve(`./src/templates/DefaultChildTemplate.js`),
+                                    context: {
+                                        id: childPage.id,
+                                    },
+                                })
+                            }
+                        }
+
                         break;
                     default:
                         break;
@@ -64,6 +78,10 @@ async function getNodes({ graphql, reporter }) {
                         __typename
                         id
                         slug
+                        childPages {
+                            id
+                            slug
+                        }
                     }
                 }
             }

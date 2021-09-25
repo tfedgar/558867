@@ -1,29 +1,43 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Layout from "components/layout"
-import Seo from "components/seo"
+import PageIntro from "components/PageIntro"
+import InfoBlocks from "components/InfoBlocks"
 
 const DefaultTemplate = (props) =>  {
-    const data = props.data.contentfulPage
-    return (
-        <Layout>
-            <Seo title="Home" />
-            <h1>{data.title}</h1>
-            { documentToReactComponents( JSON.parse(data.text.raw) ) }
-        </Layout>
-    )
+	const data = props.data.contentfulPage
+	return (
+		<Layout title={data.title}>
+
+			<PageIntro 
+				text={data.text}
+			/>
+
+			<InfoBlocks blocks={data.infoBlocks} />
+		</Layout>
+	)
 }
 
 export const pageQuery = graphql`
 query($id: String!) {
-    contentfulPage(id: {eq: $id}) {
-        id
-        title
-        text {
-            raw
-        }
-    }
+	contentfulPage(id: {eq: $id}) {
+		id
+		title
+		text {
+			raw
+		}
+		infoBlocks {
+			title
+			image {
+				title
+				gatsbyImageData(width: 770, quality: 95, placeholder: NONE, layout: CONSTRAINED)
+			}
+			text {
+				raw
+			}
+			link
+		}
+	}
 }
 `
 
