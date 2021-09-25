@@ -28,29 +28,35 @@ const Header = (props) => {
             <Nav className="mr-auto" navbar>
               {props.pages.edges && props.pages.edges.map((page, i) => {
                 const slug = page.node.slug === "/" ? "/" : `/${page.node.slug}/`
-                return(
-                  <NavItem className="mb-0">
-                    <Link className="nav-link" to={slug}>{page.node.title}</Link>
-                  </NavItem>
-                )
+
+                if (page.node.childPages) {
+                  return(
+                    <UncontrolledDropdown nav inNavbar className="mb-0">
+                      <DropdownToggle nav caret>
+                        {page.node.title}
+                      </DropdownToggle>
+                      <DropdownMenu>
+                        <DropdownItem key={i}>
+                            <Link className="nav-link" to={slug}>Overview</Link>
+                        </DropdownItem>
+                        {page.node.childPages.map((child, i) => {
+                          return(
+                            <DropdownItem key={i}>
+                              <Link className="nav-link" to={`${slug}${child.slug}/`}>{child.title}</Link>
+                            </DropdownItem>
+                          )
+                        })}
+                      </DropdownMenu>
+                    </UncontrolledDropdown>
+                  )
+                } else {
+                  return(
+                    <NavItem className="mb-0">
+                      <Link className="nav-link" to={slug}>{page.node.title}</Link>
+                    </NavItem>
+                  )
+                }
               })}
-              <UncontrolledDropdown nav inNavbar className="mb-0">
-                <DropdownToggle nav caret>
-                  Options
-                </DropdownToggle>
-                <DropdownMenu right>
-                  <DropdownItem>
-                    Option 1
-                  </DropdownItem>
-                  <DropdownItem>
-                    Option 2
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    Reset
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
             </Nav>
           </Collapse>
         </Container>
