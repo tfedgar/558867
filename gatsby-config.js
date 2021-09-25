@@ -42,7 +42,7 @@ module.exports = {
       options: {
         spaceId: `s588ct3shxk1`,
         // Learn about environment variables: https://gatsby.dev/env-vars
-        accessToken: "t4tocUxAtthJY-JQ5_qoMp1__AAzEOv7ETVaUFcQvtw", // should be env variable on amplify
+        accessToken: "t4tocUxAtthJY-JQ5_qoMp1__AAzEOv7ETVaUFcQvtw", 
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
