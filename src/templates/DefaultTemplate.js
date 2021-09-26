@@ -1,19 +1,13 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "components/Layout"
-import PageIntro from "components/PageIntro"
-import InfoBlocks from "components/InfoBlocks"
+import PageContent from "components/PageContent"
 
 const DefaultTemplate = (props) =>  {
 	const data = props.data.contentfulPage
 	return (
 		<Layout title={data.title}>
-
-			<PageIntro 
-				text={data.text}
-			/>
-
-			<InfoBlocks blocks={data.infoBlocks} />
+			<PageContent data={data} />
 		</Layout>
 	)
 }

@@ -1,7 +1,6 @@
 import React, {useState} from "react"
 import { Link, StaticQuery, graphql } from "gatsby"
 import {
-  Container,
   Collapse,
   Navbar,
   NavbarToggler,
@@ -13,6 +12,7 @@ import {
   DropdownMenu,
   DropdownItem,
 } from 'reactstrap'
+import ContainerStyled from "components/ContainerStyled"
 
 const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,7 +21,7 @@ const Header = (props) => {
   return (
     <header>
       <Navbar color="light" light expand="md">
-        <Container>
+        <ContainerStyled>
           <NavbarBrand href="/">558867</NavbarBrand>
           <NavbarToggler onClick={toggle} />
           <Collapse isOpen={isOpen} navbar>
@@ -64,7 +64,7 @@ const Header = (props) => {
               })}
             </Nav>
           </Collapse>
-        </Container>
+        </ContainerStyled>
       </Navbar>
     </header>    
   )
