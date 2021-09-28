@@ -28,7 +28,7 @@ const StyledInfoBlock = styled.div`
 `
 
 const LinkStyled = styled(Link)`
-  background-color: black;
+  background-color: black !important;
 `
 
 const InfoBlocks = (props) => {

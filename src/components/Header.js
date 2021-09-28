@@ -16,7 +16,7 @@ import {
 import ContainerStyled from "components/ContainerStyled"
 
 const LinkStyled = styled(Link)`
-  color: black;
+  color: black !important;
 `
 
 const Header = (props) => {
