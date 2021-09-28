@@ -27,6 +27,10 @@ const StyledInfoBlock = styled.div`
   }
 `
 
+const LinkStyled = styled(Link)`
+  background-color: black;
+`
+
 const InfoBlocks = (props) => {
   return (
     <ContainerStyled>
@@ -63,9 +67,9 @@ const InfoBlocks = (props) => {
                       </div>
                   }
                   {link &&
-                    <Link to={link} className="btn btn-primary">
+                    <LinkStyled to={link} className="btn btn-primary">
                       Read more
-                    </Link>
+                    </LinkStyled>
                   }
                 </div>
               </StyledInfoBlock>
