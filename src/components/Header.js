@@ -17,6 +17,10 @@ import ContainerStyled from "components/ContainerStyled"
 
 const LinkStyled = styled(Link)`
   color: black !important;
+
+  &.nav-link {
+    color: black !important;
+  }
 `
 
 const Header = (props) => {

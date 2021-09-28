@@ -14,13 +14,13 @@ const DefaultChildTemplate = (props) =>  {
 
 export const pageQuery = graphql`
 query($id: String!) {
-    contentfulChildPage(id: {eq: $id}) {
-        id
-        title
-        text {
-            raw
-        }
-    }
+	contentfulChildPage(id: {eq: $id}) {
+		id
+		title
+		text {
+				raw
+		}
+	}
 }
 `
 
