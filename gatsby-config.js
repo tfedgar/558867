@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `558867`,
-    description: ``,
+    description: `A directory for mental health resources and services in the swansea area.`,
     author: `tfedgar`,
     siteUrl: `https://main.d2mtk3eeyqjwn8.amplifyapp.com/`,
   },
@@ -34,7 +34,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/favicon.jpeg`, // This path is relative to the root of the site.
       },
     },
     {

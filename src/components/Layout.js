@@ -13,12 +13,13 @@ import Footer from "./Footer"
 import "./layout.css"
 import "bootstrap/dist/css/bootstrap.min.css"
 
-const Layout = ({ title, children }) => {
+const Layout = (props) => {
+  console.log(props)
   return (
     <>
     	<Seo title="Home" />
-      <Header siteTitle={title} />
-      <main>{children}</main>
+      <Header siteTitle={props.title} />
+      <main>{props.children}</main>
       <Footer />
     </>
   )

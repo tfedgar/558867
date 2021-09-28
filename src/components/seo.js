@@ -19,6 +19,7 @@ function Seo({ description, lang, meta, title }) {
             title
             description
             author
+            siteUrl
           }
         }
       }
@@ -27,49 +28,27 @@ function Seo({ description, lang, meta, title }) {
 
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
+  const metaImage = site.siteMetadata.siteUrl+"/facebook.jpeg"
+  const twitterImage = site.siteMetadata.siteUrl+"/twitter.jpeg"
 
   return (
     <Helmet
       htmlAttributes={{
-        lang,
+          lang
       }}
-      title={title}
-      titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata?.author || ``,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
-    />
+      title={defaultTitle}
+    >
+      <meta name="description" content={metaDescription} />
+      <meta property="og:title" content={defaultTitle} />
+      <meta property="og:description" content={metaDescription} />
+      <meta property="og:type" content="website" />
+      <meta property="og:image" content={metaImage} />
+      <meta property="twitter:card" content="summary" />
+      <meta property="twitter:creator" content={site.siteMetadata.author} />
+      <meta property="twitter:title" content={defaultTitle} />
+      <meta property="twitter:description" content={metaDescription} />
+      <meta property="twitter:image" content={twitterImage} />
+    </Helmet>
   )
 }
 
