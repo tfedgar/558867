@@ -11,7 +11,7 @@ const PageIntro = (props) =>  {
     <>
       <Container className="pt-5">
         <Button color="danger" className="w-100 mb-4" onClick={toggle}>
-          Urgent Help Button - Suicide prevention
+          Suicide Helplines
         </Button>
         <div className="py-4">
           { documentToReactComponents( JSON.parse(props.text.raw) ) }
