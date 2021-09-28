@@ -11,14 +11,14 @@ const PageIntro = (props) =>  {
     <>
       <Container className="pt-5">
         <Button color="danger" className="w-100 mb-4" onClick={toggle}>
-          Suicide Helplines
+          Urgent Help Button - Suicide prevention
         </Button>
         <div className="py-4">
           { documentToReactComponents( JSON.parse(props.text.raw) ) }
         </div>
       </Container>
       <Modal isOpen={modal} toggle={toggle} centered={true}>
-        <ModalHeader toggle={toggle}>Modal title</ModalHeader>
+        <ModalHeader toggle={toggle}>Suicide Helpines</ModalHeader>
         <ModalBody>
           <a href="https://www.samaritans.org/" target="_blank" rel="noopener noreferrer">Samaritans</a> – for everyone<br/>
           Call 116 123<br/>
