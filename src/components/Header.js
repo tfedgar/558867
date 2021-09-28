@@ -1,5 +1,6 @@
 import React, {useState} from "react"
 import { Link, StaticQuery, graphql } from "gatsby"
+import styled from "styled-components"
 import {
   Collapse,
   Navbar,
@@ -14,6 +15,10 @@ import {
 } from 'reactstrap'
 import ContainerStyled from "components/ContainerStyled"
 
+const LinkStyled = styled(Link)`
+  color: black;
+`
+
 const Header = (props) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
@@ -27,7 +32,7 @@ const Header = (props) => {
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
               <NavItem className="mb-0">
-                <Link className="nav-link" to="/">Home</Link>
+                <LinkStyled className="nav-link" to="/">Home</LinkStyled>
               </NavItem>
               {props.pages.edges && props.pages.edges.map((page, i) => {
                 const slug = page.node.slug === "/" ? "/" : `/${page.node.slug}/`
@@ -40,12 +45,12 @@ const Header = (props) => {
                         </DropdownToggle>
                         <DropdownMenu>
                           <DropdownItem key={i}>
-                              <Link className="nav-link" to={slug}>Overview</Link>
+                              <LinkStyled className="nav-link" to={slug}>Overview</LinkStyled>
                           </DropdownItem>
                           {page.node.childPages.map((child, i) => {
                             return(
                               <DropdownItem key={i}>
-                                <Link className="nav-link" to={`${slug}${child.slug}/`}>{child.title}</Link>
+                                <LinkStyled className="nav-link" to={`${slug}${child.slug}/`}>{child.title}</LinkStyled>
                               </DropdownItem>
                             )
                           })}
@@ -55,7 +60,7 @@ const Header = (props) => {
                   } else {
                     return(
                       <NavItem className="mb-0">
-                        <Link className="nav-link" to={slug}>{page.node.title}</Link>
+                        <LinkStyled className="nav-link" to={slug}>{page.node.title}</LinkStyled>
                       </NavItem>
                     )
                   }
