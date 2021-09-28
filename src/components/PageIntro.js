@@ -20,7 +20,14 @@ const PageIntro = (props) =>  {
       <Modal isOpen={modal} toggle={toggle} centered={true}>
         <ModalHeader toggle={toggle}>Modal title</ModalHeader>
         <ModalBody>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <a href="https://www.samaritans.org/" target="_blank" rel="noopener noreferrer">Samaritans</a> – for everyone
+          Call 116 123
+          Email <a href="mailto:jo@samaritans.org">jo@samaritans.org</a> <br/><br/>
+
+          <a href="https://www.papyrus-uk.org/help-advice/about-hopelineuk" target="_blank" rel="noopener noreferrer">Papyrus</a>  – for people under 35
+          Call 0800 068 41 41 – 9am to midnight every day
+          Text 07860 039967
+          Email <a href="mailto:pat@papyrus-uk.org">pat@papyrus-uk.org</a>
         </ModalBody>
         <ModalFooter>
           <Button color="secondary" onClick={toggle}>Cancel</Button>
