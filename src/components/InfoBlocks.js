@@ -50,7 +50,7 @@ const InfoBlocks = (props) => {
 
           return(
             <Col xs={12} md={4} key={i} className="mb-4">
-              <StyledInfoBlock as={link ? Link : 'div'} to={link ? link : false}>
+              <StyledInfoBlock as={link ? Link : 'div'} to={link ? link : ''}>
                 <GatsbyImage
                   image={image.gatsbyImageData}
                   alt={image.title}

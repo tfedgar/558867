@@ -41,17 +41,17 @@ const Header = (props) => {
                 if (slug !== "/") {
                   if (page.node.childPages) {
                     return(
-                      <UncontrolledDropdown nav inNavbar className="mb-0">
+                      <UncontrolledDropdown nav inNavbar className="mb-0" key={i}>
                         <DropdownToggle nav caret>
                           {page.node.title}
                         </DropdownToggle>
                         <DropdownMenu>
-                          <DropdownItem key={i}>
+                          <DropdownItem>
                               <Link className="nav-link" to={slug}>Overview</Link>
                           </DropdownItem>
-                          {page.node.childPages.map((child, i) => {
+                          {page.node.childPages.map((child, ci) => {
                             return(
-                              <DropdownItem key={i}>
+                              <DropdownItem key={ci}>
                                 <Link className="nav-link" to={`${slug}${child.slug}/`}>{child.title}</Link>
                               </DropdownItem>
                             )
@@ -61,7 +61,7 @@ const Header = (props) => {
                     )
                   } else {
                     return(
-                      <NavItem className="mb-0">
+                      <NavItem className="mb-0" key={i}>
                         <Link className="nav-link" to={slug}>{page.node.title}</Link>
                       </NavItem>
                     )
