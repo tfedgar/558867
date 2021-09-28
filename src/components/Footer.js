@@ -21,7 +21,7 @@ const Footer = () => {
   return(
     <StyledFooter>
       <ContainerStyled>
-        © {new Date().getFullYear()}, Built with
+        © {new Date().getFullYear()}, Built with test
         {` `}
         <a href="https://www.gatsbyjs.com">Gatsby</a>
       </ContainerStyled>
