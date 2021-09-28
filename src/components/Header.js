@@ -34,7 +34,7 @@ const Header = (props) => {
           <Collapse isOpen={isOpen} navbar>
             <Nav className="mr-auto" navbar>
               <NavItem className="mb-0">
-                <LinkStyled className="nav-link" to="/">Home</LinkStyled>
+                <Link className="nav-link" to="/">Home</Link>
               </NavItem>
               {props.pages.edges && props.pages.edges.map((page, i) => {
                 const slug = page.node.slug === "/" ? "/" : `/${page.node.slug}/`
@@ -47,12 +47,12 @@ const Header = (props) => {
                         </DropdownToggle>
                         <DropdownMenu>
                           <DropdownItem key={i}>
-                              <LinkStyled className="nav-link" to={slug}>Overview</LinkStyled>
+                              <Link className="nav-link" to={slug}>Overview</Link>
                           </DropdownItem>
                           {page.node.childPages.map((child, i) => {
                             return(
                               <DropdownItem key={i}>
-                                <LinkStyled className="nav-link" to={`${slug}${child.slug}/`}>{child.title}</LinkStyled>
+                                <Link className="nav-link" to={`${slug}${child.slug}/`}>{child.title}</Link>
                               </DropdownItem>
                             )
                           })}
@@ -62,7 +62,7 @@ const Header = (props) => {
                   } else {
                     return(
                       <NavItem className="mb-0">
-                        <LinkStyled className="nav-link" to={slug}>{page.node.title}</LinkStyled>
+                        <Link className="nav-link" to={slug}>{page.node.title}</Link>
                       </NavItem>
                     )
                   }
