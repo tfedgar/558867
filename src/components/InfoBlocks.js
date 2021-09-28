@@ -1,5 +1,6 @@
 import React from "react"
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import { Row, Col } from "reactstrap"
 import ContainerStyled from "components/ContainerStyled"
@@ -42,12 +43,12 @@ const InfoBlocks = (props) => {
             <Col xs={12} md={4} key={i} className="mb-4">
               <StyledInfoBlock>
                 {link ? (
-                  <a href={link}>
+                  <Link to={link}>
                     <GatsbyImage
                       image={image.gatsbyImageData}
                       alt={image.title}
                     />
-                  </a>
+                  </Link>
                 ) : (
                   <GatsbyImage
                     image={image.gatsbyImageData}
@@ -62,9 +63,9 @@ const InfoBlocks = (props) => {
                       </div>
                   }
                   {link &&
-                    <a href={link} className="btn btn-primary">
+                    <Link to={link} className="btn btn-primary">
                       Read more
-                    </a>
+                    </Link>
                   }
                 </div>
               </StyledInfoBlock>
