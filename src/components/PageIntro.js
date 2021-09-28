@@ -11,7 +11,7 @@ const PageIntro = (props) =>  {
     <>
       <Container className="pt-5">
         <Button color="danger" className="w-100 mb-4" onClick={toggle}>
-          URGENT HELP HERE
+          Urgent Help Button - Suicide prevention
         </Button>
         <div className="py-4">
           { documentToReactComponents( JSON.parse(props.text.raw) ) }
@@ -22,7 +22,8 @@ const PageIntro = (props) =>  {
         <ModalBody>
           <a href="https://www.samaritans.org/" target="_blank" rel="noopener noreferrer">Samaritans</a> – for everyone<br/>
           Call 116 123<br/>
-          Email <a href="mailto:jo@samaritans.org">jo@samaritans.org</a> <br/><br/>
+          Email <a href="mailto:jo@samaritans.org">jo@samaritans.org</a> <br/>
+          SMS: Text SHOUT to 85258 <br/><br/>
 
           <a href="https://www.papyrus-uk.org/help-advice/about-hopelineuk" target="_blank" rel="noopener noreferrer">Papyrus</a>  – for people under 35<br/>
           Call 0800 068 41 41 – 9am to midnight every day<br/>
