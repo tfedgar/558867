@@ -15,10 +15,8 @@ import {
 } from 'reactstrap'
 import ContainerStyled from "components/ContainerStyled"
 
-const LinkStyled = styled(Link)`
-  color: black !important;
-
-  &.nav-link {
+const NavbarStyled = styled(Navbar)`
+  .nav-link {
     color: black !important;
   }
 `
@@ -29,7 +27,7 @@ const Header = (props) => {
 
   return (
     <header>
-      <Navbar color="light" light expand="md">
+      <NavbarStyled color="light" light expand="md">
         <ContainerStyled>
           <NavbarBrand href="/">558867</NavbarBrand>
           <NavbarToggler onClick={toggle} />
@@ -74,7 +72,7 @@ const Header = (props) => {
             </Nav>
           </Collapse>
         </ContainerStyled>
-      </Navbar>
+      </NavbarStyled>
     </header>    
   )
 }
