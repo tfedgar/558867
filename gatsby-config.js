@@ -45,6 +45,7 @@ module.exports = {
         accessToken: "t4tocUxAtthJY-JQ5_qoMp1__AAzEOv7ETVaUFcQvtw", 
       },
     },
+    `gatsby-plugin-sitemap`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     `gatsby-plugin-offline`,
