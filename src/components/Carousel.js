@@ -9,17 +9,17 @@ import {
 
 const items = [
   {
-    src: 'http://placehold.it/1600x550',
+    src: 'https://via.placeholder.com/1600x550',
     altText: 'Slide 1',
     caption: 'Slide 1'
   },
   {
-    src: 'http://placehold.it/1600x550',
+    src: 'https://via.placeholder.com/1600x550',
     altText: 'Slide 2',
     caption: 'Slide 2'
   },
   {
-    src: 'http://placehold.it/1600x550',
+    src: 'https://via.placeholder.com/1600x550',
     altText: 'Slide 3',
     caption: 'Slide 3'
   }
