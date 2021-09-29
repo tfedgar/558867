@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { Container, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import Carousel from "./Carousel"
 
 const PageIntro = (props) =>  {
   const [modal, setModal] = useState(false);
@@ -10,12 +11,15 @@ const PageIntro = (props) =>  {
   return(
     <>
       <Container className="pt-5">
+        
         <Button color="danger" className="w-100 mb-4" onClick={toggle}>
           Urgent Help Button - Suicide prevention
         </Button>
         <div className="py-4">
           { documentToReactComponents( JSON.parse(props.text.raw) ) }
         </div>
+
+        <Carousel />
       </Container>
       <Modal isOpen={modal} toggle={toggle} centered={true}>
         <ModalHeader toggle={toggle}>Suicide Helpines</ModalHeader>
