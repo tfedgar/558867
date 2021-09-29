@@ -7,6 +7,7 @@ import {
   CarouselCaption
 } from 'reactstrap';
 
+
 const items = [
   {
     src: 'https://via.placeholder.com/1600x550',
