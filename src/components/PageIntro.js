@@ -17,8 +17,6 @@ const PageIntro = (props) =>  {
         <div className="py-4">
           { documentToReactComponents( JSON.parse(props.text.raw) ) }
         </div>
-
-        <Carousel />
       </Container>
       <Modal isOpen={modal} toggle={toggle} centered={true}>
         <ModalHeader toggle={toggle}>Suicide Helpines</ModalHeader>
